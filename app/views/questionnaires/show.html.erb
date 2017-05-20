@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Questionnaire -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Questionnaire %></h1>
+</div>
 
-<p>
-  <strong>Question:</strong>
-  <%= @questionnaire.question %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:question) %></dt>
+      <dd><pre class="prettyprint"><%= @questionnaire.question %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:answer) %></dt>
+      <dd><pre class="prettyprint"><%= @questionnaire.answer %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:comment) %></dt>
+      <dd><pre class="prettyprint"><%= @questionnaire.comment %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Answer:</strong>
-  <%= @questionnaire.answer %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              questionnaires_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_questionnaire_path(@questionnaire), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              questionnaire_path(@questionnaire),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @questionnaire.comment %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @questionnaire.patient %>
-</p>
-
-<p>
-  <strong>Patient visit:</strong>
-  <%= @questionnaire.patient_visit %>
-</p>
-
-<%= link_to 'Edit', edit_questionnaire_path(@questionnaire) %> |
-<%= link_to 'Back', questionnaires_path %>

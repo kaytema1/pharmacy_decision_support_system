@@ -1,15 +1,28 @@
-<%= simple_form_for(@questionnaire) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :question %>
-    <%= f.input :answer %>
-    <%= f.input :comment %>
-    <%= f.association :patient %>
-    <%= f.association :patient_visit %>
+<%= form_for @questionnaire, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :question, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :question, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :answer, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :answer, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :comment, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :comment, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  questionnaires_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
