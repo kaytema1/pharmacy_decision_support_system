@@ -1,6 +1,5 @@
-<h1>Editing prescription</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @prescription %> |
-<%= link_to 'Back', prescriptions_path %>
+<%- model_class = Prescription -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Prescription %></h1>
+</div>
+<%= render :partial => 'form' %>
