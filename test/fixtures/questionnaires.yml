@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyText
+  answer: MyString
+  comment: MyText
+  patient_id: 
+  patient_visit_id: 
+
+two:
+  question: MyText
+  answer: MyString
+  comment: MyText
+  patient_id: 
+  patient_visit_id: 
